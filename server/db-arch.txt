@@ -1,0 +1,43 @@
+### Database
+## Tables
+
+# users table
+- id: integer increment pk
+- name: string notnull
+- email: string notnull unique
+- created_at: timestamp
+
+# todos table
+- id integer increment pk
+- title: string
+- order: integer
+- completed: boolean default(false)
+- created_at: timestamp
+- updated_at: timestamp
+
+# todos-assignment table
+- id integer increment pk
+- todo_id: integer fk (-> todos.id)
+- users_id: integer fk (-> users.id)
+- created_at: timestamp
+
+## Relationship
+- Many: Many Relationship between users and todos model
+
+# ------------------------------------- #
+
+### API Design
+
+# users module
+  - POST /users/add : Creating a new user
+    - Collect name, email from req.body
+  - GET /users    : Return array of all users 
+
+# todos module
+  - POST /todos/:id/assign : Assigning todo to a specific user
+    - Collect user_id from req.body
+    - Collect todo_id from req.params
+  - POST /todos/:id/unassign : Unassign todo from a specific user
+    - Collect user_id from req.body
+    - Collect todo_id from req.params
+  - GET /todos/all/assigned-users : Get the list of all todos with the assigned users
