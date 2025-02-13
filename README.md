@@ -1,3 +1,6 @@
+## Preview
+![preview](https://github.com/AnkitKumarMishra5/team-task-tracker/blob/5468089ecbb4dc35e8132a628bd856e7ba1f3c09/client/public/Screenshot%202025-02-13%20203941.png)
+
 ## Installation
 
 1. Install dependencies.
